@@ -18,6 +18,8 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
 
+      - name: Test
+        run: ls
       - name: Build
         run: javac .\src\NumberProcessor.java
       - name: Run
