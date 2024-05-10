@@ -19,6 +19,6 @@ jobs:
           java-version: '8'
 
       - name: Build
-        run: javac NumberProcessor.java
+        run: javac .\src\NumberProcessor.java
       - name: Run
-        run: java NumberProcessor
+        run: java .\src\NumberProcessor
