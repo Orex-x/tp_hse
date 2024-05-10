@@ -66,7 +66,7 @@ class NumberProcessorTest {
     @Test
     public void testGetNumbers() {
         try {
-            var path = "test_numbers.txt";
+            String path = "test_numbers.txt";
             createTestFile(path, "5 3 8 2 10");
 
             int[] expected = {5, 3, 8, 2, 10};
@@ -79,7 +79,7 @@ class NumberProcessorTest {
     @Test
     public void testScanFile() {
         try {
-            var path = "test_scan.txt";
+            String path = "test_scan.txt";
             createTestFile(path, "1 2 3 4 5");
 
             assertEquals("1 2 3 4 5", NumberProcessor.scanFile(path));
@@ -89,7 +89,7 @@ class NumberProcessorTest {
     }
 
     private void createTestFile(String path, String content) throws IOException {
-        var file = new File(path);
+        File file = new File(path);
         FileWriter writer = new FileWriter(file);
         writer.write(content);
         writer.close();
