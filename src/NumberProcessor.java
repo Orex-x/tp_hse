@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class NumberProcessor {
     public static void main(String[] args) {
-        var numbers = getNumbers("numbers.txt");
+        int[] numbers = getNumbers("numbers.txt");
         System.out.println("_min: " + _min(numbers));
         System.out.println("_max: " + _max(numbers));
         System.out.println("_sum: " + _sum(numbers));
@@ -31,7 +31,7 @@ public class NumberProcessor {
 
     public static String scanFile(String path) {
         try {
-            var file = new File(path);
+            File file = new File(path);
 
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
@@ -39,7 +39,7 @@ public class NumberProcessor {
                 System.out.println("File already exists.");
             }
 
-            var scanner = new Scanner(file);
+            Scanner scanner = new Scanner(file);
             String  line = scanner.nextLine();
             scanner.close();
             return line;
