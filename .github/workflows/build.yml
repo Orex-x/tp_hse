@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: javac -cp ./lib/junit-jupiter-api-5.8.1.jar ./src/NumberProcessor.java ./src/NumberProcessorTest.java
       - name: Run
-        run: java -classpath ./src NumberProcessorTest
+        run: java -cp "./src:./lib/junit-jupiter-api-5.8.1.jar" org.junit.platform.console.ConsoleLauncher --scan-class-path
 
   build:
     runs-on: ubuntu-latest
