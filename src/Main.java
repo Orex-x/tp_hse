@@ -5,16 +5,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        var numbers = getNumbers("numbers.txt");
+        System.out.println("_min: " + _min(numbers));
+        System.out.println("_max: " + _max(numbers));
+        System.out.println("_sum: " + _sum(numbers));
+        System.out.println("_mult: " + _mult(numbers));
+    }
+
+
+    public static int[] getNumbers(String path){
         try {
-            File file = new File("numbers.txt");
+            var file = new File(path);
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
             } else {
                 System.out.println("File already exists.");
             }
 
-            Scanner scanner = new Scanner(file);
-            String line = scanner.nextLine();
+            var scanner = new Scanner(file);
+            String line = scanFile(path);
             String[] numbers = line.split(" ");
             scanner.close();
 
@@ -23,16 +32,40 @@ public class Main {
                 intNumbers[i] = Integer.parseInt(numbers[i]);
             }
 
-            System.out.println("_min: " + _min(intNumbers));
-            System.out.println("_max: " + _max(intNumbers));
-            System.out.println("_sum: " + _sum(intNumbers));
-            System.out.println("_mult: " + _mult(intNumbers));
+            return intNumbers;
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
             e.printStackTrace();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        return new int[0];
+    }
+
+    public static String scanFile(String path) {
+        try {
+            var file = new File(path);
+
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+
+            var scanner = new Scanner(file);
+            String  line = scanner.nextLine();
+            scanner.close();
+            return line;
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new String();
     }
 
     public static int _min(int[] numbers) {
