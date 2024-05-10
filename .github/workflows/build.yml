@@ -21,10 +21,4 @@ jobs:
       - name: Build
         run: javac ./src/NumberProcessor.java
       - name: Check
-        run: ls ./src/
-      - name: Sleep
-        run: sleep 10
-      - name: Check two
-        run: ls ./src/
-      - name: Run
-        run: java ./src/NumberProcessor
+        run: java -classpath ./src NumberProcessor
