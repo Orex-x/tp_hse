@@ -19,9 +19,9 @@ jobs:
           java-version: '8'
 
       - name: Build
-        run: javac -cp ./lib/junit-jupiter-api-5.8.1.jar ./src/NumberProcessor.java ./src/NumberProcessorTest.java
+        run: javac -cp ./lib/junit.jar ./src/NumberProcessor.java ./src/NumberProcessorTest.java
       - name: Run
-        run: java -jar ./lib/junit-jupiter-api-5.8.1.jar --class-path target --select-class NumberProcessorTest
+        run: $ java -jar ./lib/junit.jar --class-path target --select-class NumberProcessorTest
 
   build:
     runs-on: ubuntu-latest
