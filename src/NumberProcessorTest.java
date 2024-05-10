@@ -8,30 +8,30 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MainTest {
+class NumberProcessorTest {
 
     @Test
     public void testMinFunction() {
         int[] numbers = {5, 3, 8, 2, 10};
-        assertEquals(2, Main._min(numbers));
+        assertEquals(2, NumberProcessor._min(numbers));
     }
 
     @Test
     public void testMaxFunction() {
         int[] numbers = {5, 3, 8, 2, 10};
-        assertEquals(10, Main._max(numbers));
+        assertEquals(10, NumberProcessor._max(numbers));
     }
 
     @Test
     public void testSumFunction() {
         int[] numbers = {5, 3, 8, 2, 10};
-        assertEquals(28, Main._sum(numbers));
+        assertEquals(28, NumberProcessor._sum(numbers));
     }
 
     @Test
     public void testMultFunction() {
         int[] numbers = {5, 3, 8, 2, 10};
-        assertEquals(2400, Main._mult(numbers));
+        assertEquals(2400, NumberProcessor._mult(numbers));
     }
 
     @Test
@@ -49,10 +49,10 @@ class MainTest {
             }
             scanner.close();
 
-            Main._min(numbers);
-            Main._max(numbers);
-            Main._sum(numbers);
-            Main._mult(numbers);
+            NumberProcessor._min(numbers);
+            NumberProcessor._max(numbers);
+            NumberProcessor._sum(numbers);
+            NumberProcessor._mult(numbers);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ class MainTest {
             createTestFile(path, "5 3 8 2 10");
 
             int[] expected = {5, 3, 8, 2, 10};
-            assertArrayEquals(expected, Main.getNumbers(path));
+            assertArrayEquals(expected, NumberProcessor.getNumbers(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,7 +82,7 @@ class MainTest {
             var path = "test_scan.txt";
             createTestFile(path, "1 2 3 4 5");
 
-            assertEquals("1 2 3 4 5", Main.scanFile(path));
+            assertEquals("1 2 3 4 5", NumberProcessor.scanFile(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
